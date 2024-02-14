@@ -1,0 +1,35 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		
+		int arr[]=new int[]{12,-1,-7,8,-15,30,16,28};
+		int w=3;
+		int res= solve(arr,w);
+	//	System.out.println("Hello World "+ res);
+	}
+	public static int solve(int arr[],int w){
+	    int sum=0,tempsum=0;
+	    ArrayDeque<Integer> list=new ArrayDeque<>();
+	    int i=0,j=0;
+	    while(i<arr.length-w){
+	        if((j-i+1)<w){
+	           if(arr[j]<0) list.addLast(arr[j]);
+	           j++;
+	             
+	        }
+	        else{
+	            if(list.isEmpty()==false){
+	                System.out.print(list.peekFirst()+" " );
+	                if(list.peekFirst()==arr[i])   list.removeFirst() ;
+	                if(arr[j]<0)  list.addLast(arr[j]);
+	            }  
+	             if(list.isEmpty()==true) System.out.print("0 ");
+	            i++;
+	            j++;
+	        }
+	    }
+	    
+	    return sum;
+	}
+}
