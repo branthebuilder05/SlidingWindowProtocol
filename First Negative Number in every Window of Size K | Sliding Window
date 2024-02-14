@@ -22,9 +22,10 @@ public class Main
 	            if(list.isEmpty()==false){
 	                System.out.print(list.peekFirst()+" " );
 	                if(list.peekFirst()==arr[i])   list.removeFirst() ;
-	                if(arr[j]<0)  list.addLast(arr[j]);
+	            
 	            }  
 	             if(list.isEmpty()==true) System.out.print("0 ");
+    if(arr[j]<0)  list.addLast(arr[j]);
 	            i++;
 	            j++;
 	        }
