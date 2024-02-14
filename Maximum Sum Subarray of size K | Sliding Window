@@ -1,0 +1,31 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		
+		int arr[]=new int[]{2,1,5,8,2,9,1};
+		int w=3;
+		int res= solve(arr,w);
+		System.out.println("Hello World "+ res);
+	}
+	public static int solve(int arr[],int w){
+	    int sum=0,tempsum=0;
+	    int i=0,j=0;
+	    while(j<arr.length){
+	        if((j-i+1)<=w){
+	            System.out.println("in if  "+j);
+	             tempsum+=arr[j++];
+	             if(tempsum>sum)    sum=tempsum;
+	             
+	        }
+	        else{
+	            
+	            System.out.println("in elseif "+j);
+	            tempsum=tempsum+arr[j++]-arr[i++];
+	            if(tempsum>sum)    sum=tempsum;
+	        }
+	    }
+	    
+	    return sum;
+	}
+}
