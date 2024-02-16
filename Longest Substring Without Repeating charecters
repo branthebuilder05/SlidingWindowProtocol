@@ -1,0 +1,33 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	
+		String s="abbcabcadacba";
+		int len=solve(s);
+			System.out.println("Hello World "+len);
+		
+	}
+	public static int solve(String s){
+	    HashMap<Character,Integer> hm=new HashMap<>();
+	     int len=0;
+	    int i=0,j=0;
+	    while(j<s.length()){
+	       
+	        if(hm.containsKey(s.charAt(j))){
+	            hm.remove(s.charAt(i));
+	            i++;
+	            
+	        }
+	        else{
+	            hm.put(s.charAt(j),j);
+	            j++;
+	            if(hm.size()>len) len=hm.size();
+	        }
+	        
+	        
+	    }
+	    return len;
+	    
+	}
+}
