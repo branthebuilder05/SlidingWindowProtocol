@@ -1,0 +1,43 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	
+		String s="abcabccadacbaaaa";
+		int len=solve(s);
+			System.out.println("Hello World "+len);
+		
+	}
+
+
+ public static int solve(String s){
+        HashMap<Character,Integer> hm=new HashMap<>();
+	     int len=0;
+	    int i=0,j=0;
+        while(j<s.length()){
+        if(hm.size()<2 || hm.containsKey(s.charAt(j)) ){
+           // acquire
+           char d =s.charAt(j);
+           if(hm.containsKey(d))
+            hm.put(d,1+hm.get(d));
+    
+           else 
+           hm.put(d,1);
+
+           len=Math.max(j-i+1,len);
+           j++;
+
+        }
+        else{
+            //release
+            char c=s.charAt(i);
+            hm.put(c,hm.get(c)-1);
+            if(hm.get(c)==0)    hm.remove(c);
+            i++;
+        }
+        	System.out.println(hm);
+    } 
+    return len;
+    }
+
+}
